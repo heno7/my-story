@@ -12,14 +12,23 @@
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as IndexImport } from './routes/index'
+import { Route as TopicsIndexImport } from './routes/topics/index'
 import { Route as StoriesIndexImport } from './routes/stories/index'
 import { Route as StoriesStoryIdImport } from './routes/stories/$storyId'
+import { Route as TopicsTopicIdStoriesImport } from './routes/topics/$topicId.stories'
+import { Route as TopicsTopicIdStoriesStoryIdImport } from './routes/topics/$topicId_.stories.$storyId'
 
 // Create/Update Routes
 
 const IndexRoute = IndexImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const TopicsIndexRoute = TopicsIndexImport.update({
+  id: '/topics/',
+  path: '/topics/',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -34,6 +43,19 @@ const StoriesStoryIdRoute = StoriesStoryIdImport.update({
   path: '/stories/$storyId',
   getParentRoute: () => rootRoute,
 } as any)
+
+const TopicsTopicIdStoriesRoute = TopicsTopicIdStoriesImport.update({
+  id: '/topics/$topicId/stories',
+  path: '/topics/$topicId/stories',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const TopicsTopicIdStoriesStoryIdRoute =
+  TopicsTopicIdStoriesStoryIdImport.update({
+    id: '/topics/$topicId_/stories/$storyId',
+    path: '/topics/$topicId/stories/$storyId',
+    getParentRoute: () => rootRoute,
+  } as any)
 
 // Populate the FileRoutesByPath interface
 
@@ -60,6 +82,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StoriesIndexImport
       parentRoute: typeof rootRoute
     }
+    '/topics/': {
+      id: '/topics/'
+      path: '/topics'
+      fullPath: '/topics'
+      preLoaderRoute: typeof TopicsIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/topics/$topicId/stories': {
+      id: '/topics/$topicId/stories'
+      path: '/topics/$topicId/stories'
+      fullPath: '/topics/$topicId/stories'
+      preLoaderRoute: typeof TopicsTopicIdStoriesImport
+      parentRoute: typeof rootRoute
+    }
+    '/topics/$topicId_/stories/$storyId': {
+      id: '/topics/$topicId_/stories/$storyId'
+      path: '/topics/$topicId/stories/$storyId'
+      fullPath: '/topics/$topicId/stories/$storyId'
+      preLoaderRoute: typeof TopicsTopicIdStoriesStoryIdImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -69,12 +112,18 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/stories/$storyId': typeof StoriesStoryIdRoute
   '/stories': typeof StoriesIndexRoute
+  '/topics': typeof TopicsIndexRoute
+  '/topics/$topicId/stories': typeof TopicsTopicIdStoriesRoute
+  '/topics/$topicId/stories/$storyId': typeof TopicsTopicIdStoriesStoryIdRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/stories/$storyId': typeof StoriesStoryIdRoute
   '/stories': typeof StoriesIndexRoute
+  '/topics': typeof TopicsIndexRoute
+  '/topics/$topicId/stories': typeof TopicsTopicIdStoriesRoute
+  '/topics/$topicId/stories/$storyId': typeof TopicsTopicIdStoriesStoryIdRoute
 }
 
 export interface FileRoutesById {
@@ -82,14 +131,36 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/stories/$storyId': typeof StoriesStoryIdRoute
   '/stories/': typeof StoriesIndexRoute
+  '/topics/': typeof TopicsIndexRoute
+  '/topics/$topicId/stories': typeof TopicsTopicIdStoriesRoute
+  '/topics/$topicId_/stories/$storyId': typeof TopicsTopicIdStoriesStoryIdRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/stories/$storyId' | '/stories'
+  fullPaths:
+    | '/'
+    | '/stories/$storyId'
+    | '/stories'
+    | '/topics'
+    | '/topics/$topicId/stories'
+    | '/topics/$topicId/stories/$storyId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/stories/$storyId' | '/stories'
-  id: '__root__' | '/' | '/stories/$storyId' | '/stories/'
+  to:
+    | '/'
+    | '/stories/$storyId'
+    | '/stories'
+    | '/topics'
+    | '/topics/$topicId/stories'
+    | '/topics/$topicId/stories/$storyId'
+  id:
+    | '__root__'
+    | '/'
+    | '/stories/$storyId'
+    | '/stories/'
+    | '/topics/'
+    | '/topics/$topicId/stories'
+    | '/topics/$topicId_/stories/$storyId'
   fileRoutesById: FileRoutesById
 }
 
@@ -97,12 +168,18 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   StoriesStoryIdRoute: typeof StoriesStoryIdRoute
   StoriesIndexRoute: typeof StoriesIndexRoute
+  TopicsIndexRoute: typeof TopicsIndexRoute
+  TopicsTopicIdStoriesRoute: typeof TopicsTopicIdStoriesRoute
+  TopicsTopicIdStoriesStoryIdRoute: typeof TopicsTopicIdStoriesStoryIdRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   StoriesStoryIdRoute: StoriesStoryIdRoute,
   StoriesIndexRoute: StoriesIndexRoute,
+  TopicsIndexRoute: TopicsIndexRoute,
+  TopicsTopicIdStoriesRoute: TopicsTopicIdStoriesRoute,
+  TopicsTopicIdStoriesStoryIdRoute: TopicsTopicIdStoriesStoryIdRoute,
 }
 
 export const routeTree = rootRoute
@@ -117,7 +194,10 @@ export const routeTree = rootRoute
       "children": [
         "/",
         "/stories/$storyId",
-        "/stories/"
+        "/stories/",
+        "/topics/",
+        "/topics/$topicId/stories",
+        "/topics/$topicId_/stories/$storyId"
       ]
     },
     "/": {
@@ -128,6 +208,15 @@ export const routeTree = rootRoute
     },
     "/stories/": {
       "filePath": "stories/index.jsx"
+    },
+    "/topics/": {
+      "filePath": "topics/index.jsx"
+    },
+    "/topics/$topicId/stories": {
+      "filePath": "topics/$topicId.stories.jsx"
+    },
+    "/topics/$topicId_/stories/$storyId": {
+      "filePath": "topics/$topicId_.stories.$storyId.jsx"
     }
   }
 }
