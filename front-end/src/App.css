@@ -1,0 +1,8 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-logo: #35b1f9;
+  --color-blue: #e2f1fa;
+  --spacing: 1px;
+  --text-shadow-logo: 0px 0px 3px #777777;
+}

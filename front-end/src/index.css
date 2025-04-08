@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+@import 'tailwindcss';
+
+html {
+  font-family: 'Open Sans', sans-serif;
+}
+
+@theme {
+  --color-logo: #35b1f9;
+  --color-blue: #e2f1fa;
+  --color-menu: #777777;
+  --color-primary: #444444;
+  --spacing: 1px;
+  --text-shadow-logo: 0px 0px 3px #777777;
+  --shadow-story: 0px 0px 2px #777777;
+}
