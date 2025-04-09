@@ -23,7 +23,7 @@ jobs:
 
       - name: build frontend
         run: |
-          cd frontend
+          cd fron-tend
           npm ci
           npm run build
 
