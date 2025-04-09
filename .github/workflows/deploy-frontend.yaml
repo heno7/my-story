@@ -29,7 +29,7 @@ jobs:
 
       - name: put build code to S3
         run: |
-          pwd
+          cd front-end
           aws s3 sync ./dist s3://${{ secrets.BUCKET_ID }}
 
       - name: invalidate cloudfront distribution
