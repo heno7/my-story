@@ -1,0 +1,17 @@
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://postgres:postgres@host.docker.internal:5432/auth?schema=public"
+}
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../../prisma-client"
+}
+
+model User {
+  id      Int      @id @default(autoincrement())
+  email   String   @unique
+  name    String?
+  role    String?   @default("writer")
+  password String?
+}

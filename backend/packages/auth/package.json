@@ -1,0 +1,31 @@
+{
+  "name": "auth",
+  "version": "1.0.0",
+  "description": "auth service",
+  "main": "lib/index.js",
+  "scripts": {
+    "compile": "tsc",
+    "db:push": "prisma db push",
+    "db:pull": "prisma db push",
+    "format": "prettier . --write",
+    "lint": "eslint .",
+    "test": "node lib/main.spec.js",
+    "start": "npm run compile && node lib/index.js"
+  },
+  "author": "heno7",
+  "devDependencies": {
+    "@types/amqplib": "^0.10.7",
+    "@types/express": "^5.0.1",
+    "@types/node": "^22.15.2",
+    "prisma": "^6.6.0",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.6.0",
+    "amqplib": "^0.10.7",
+    "express": "^5.1.0"
+  },
+  "prisma": {
+    "schema": "./src/prisma/schema.prisma"
+  }
+}

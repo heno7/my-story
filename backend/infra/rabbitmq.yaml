@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: queue-deployment
+spec:
+  selector:
+    matchLabels:
+      app: queue
+  template:
+    metadata:
+      labels:
+        app: queue
+    spec:
+      containers:
+        - name: queue-container
+          image: rabbitmq:4.1.0-management
+          ports:
+            - containerPort: 15672
+            - containerPort: 5672
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: queue-service
+spec:
+  selector:
+    app: queue
+  ports:
+    - name: management
+      port: 8080
+      targetPort: 15672
+    - name: queue
+      port: 5672
+      targetPort: 5672
+  type: ClusterIP

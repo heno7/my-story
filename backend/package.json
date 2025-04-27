@@ -1,0 +1,31 @@
+{
+  "name": "story-backend",
+  "private": true,
+  "scripts": {
+    "compile": "tsc -b tsconfig.build.json",
+    "prettier": "prettier \"*.{js,json,yml,md}\" \"packages/**/*\"",
+    "format": "npm run prettier -- --write",
+    "format:check": "npm run prettier -- --check",
+    "lint": "eslint \"*.{js,json,yml,md}\" \"packages/**/*\"",
+    "test": "",
+    "prepare:dev": "npm run compile"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.25.1",
+    "@types/express": "^5.0.1",
+    "@types/node": "^22.15.2",
+    "eslint": "^9.25.1",
+    "eslint-config-prettier": "^10.1.2",
+    "prettier": "^3.5.3",
+    "prisma": "^6.6.0",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.31.0"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "dependencies": {
+    "amqplib": "^0.10.7",
+    "express": "^5.1.0"
+  }
+}

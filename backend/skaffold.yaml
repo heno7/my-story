@@ -1,0 +1,26 @@
+apiVersion: skaffold/v4beta12
+kind: Config
+metadata:
+  name: backend
+build:
+  artifacts:
+    - image: auth-image
+      context: ./packages/auth
+      docker:
+        dockerfile: ./deploy/Dockerfile
+    # - image: user-image
+    #   context: ./packages/user
+    #   docker:
+    #     dockerfile: Dockerfile
+    # - image: story-image
+    #   context: ./packages/story
+    #   docker:
+    #     dockerfile: Dockerfile
+  local: {}
+
+manifests:
+  rawYaml:
+    - ./packages/auth/deploy/deployment.yaml
+    - ./infra/ingress.yaml
+    - ./infra/rabbitmq.yaml
+    # - ./infra/postgres.yaml
