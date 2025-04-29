@@ -1,0 +1,23 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "./client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://postgres:postgres@172.17.0.1:5432/auth?schema=public"
+}
+
+model auth_user {
+  id       Int        @id @default(autoincrement())
+  name     String?    @unique
+  email    String?    @unique
+  password String?
+  role     auth_role?
+}
+
+enum auth_role {
+  admin
+  writer
+  reader
+}

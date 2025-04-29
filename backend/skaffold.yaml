@@ -4,7 +4,7 @@ metadata:
   name: backend
 build:
   artifacts:
-    - image: auth-image
+    - image: heno77/auth-image
       context: ./packages/auth
       docker:
         dockerfile: ./deploy/Dockerfile
@@ -16,7 +16,7 @@ build:
     #   context: ./packages/story
     #   docker:
     #     dockerfile: Dockerfile
-  local: {}
+  local: { push: true }
 
 manifests:
   rawYaml:

@@ -1,9 +1,45 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: ingress-service
+  name: ingress-auth-service
+  # annotations:
+  # nginx.ingress.kubernetes.io/use-regex: 'true'
+  # nginx.ingress.kubernetes.io/configuration-snippet: |
+  #   rewrite ^/queue(/|$)(.*)$ /$2 break;
+  # nginx.ingress.kubernetes.io/rewrite-target: /$2
+
+spec:
+  rules:
+    - host: localhost
+      http:
+        paths:
+          - path: /auth
+            pathType: Prefix
+            backend:
+              service:
+                name: auth-service
+                port:
+                  number: 8888
+
+          # - path: /queue(/|$)(.*)
+          #   pathType: ImplementationSpecific
+          #   backend:
+          #     service:
+          #       name: queue-service
+          #       port:
+          #         number: 8080
+
+  ingressClassName: nginx
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-queue-service
   annotations:
     nginx.ingress.kubernetes.io/use-regex: 'true'
+    # nginx.ingress.kubernetes.io/configuration-snippet: |
+    #   rewrite ^/queue(/|$)(.*)$ /$2 break;
     nginx.ingress.kubernetes.io/rewrite-target: /$2
 
 spec:
@@ -18,13 +54,5 @@ spec:
                 name: queue-service
                 port:
                   number: 8080
-
-          - path: /auth
-            pathType: Prefix
-            backend:
-              service:
-                name: auth-service
-                port:
-                  number: 8888
 
   ingressClassName: nginx

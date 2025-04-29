@@ -10,13 +10,10 @@ RUN npm install
 
 COPY . . 
 
-# RUN npm run create:db
-
-RUN npx prisma generate
+RUN npm run db:genClient
 
 RUN npm run compile
 
-# RUN  cp ./src/prisma/generated/client ./lib/prisma/generated/client
 
 # run stage
 
@@ -30,9 +27,7 @@ RUN npm install --only=production
 
 COPY --from=build /app/lib /app/lib
 
-COPY --from=build /app/prisma-client /app/prisma-client
-
-# RUN cp /app/src/prisma/generated/client /app/lib/prisma/generated/client
+COPY --from=build /app/src/prisma/client /app/lib/prisma/client
 
 EXPOSE 7777
 

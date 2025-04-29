@@ -1,7 +1,7 @@
 {
-  "name": "common",
-  "version": "1.0.0",
-  "description": "auth service",
+  "name": "@heno7/common",
+  "version": "1.0.1",
+  "description": "common service",
   "main": "lib/index.js",
   "scripts": {
     "compile": "tsc",
@@ -10,6 +10,8 @@
     "test": "node lib/main.spec.js"
   },
   "author": "heno7",
-  "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "@types/node": "^22.15.3",
+    "typescript": "^5.8.3"
+  }
 }

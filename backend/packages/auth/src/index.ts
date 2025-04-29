@@ -1,31 +1,19 @@
-import express, { Express, Request, Response } from 'express';
+import express, { Express } from 'express';
+import authRoutes from './controller';
 // import amqplib from 'amqplib';
-import { PrismaClient } from '../prisma-client';
 
 const app: Express = express();
 const port = 7777;
 app.use(express.json());
-app.post('/auth', (req: Request, res: Response) => {
-  res.send('Hello World From Tu Nhien With Love!');
+
+app.use(authRoutes);
+
+app.get('/auth/test', (req, res) => {
+  res.send('Hello World From Heno7 !!!!!');
 });
 
-const prisma = new PrismaClient();
-
-app.listen(port, async () => {
+app.listen(port, () => {
   console.log(`auth service listening on port ${port}`);
-  //   await prisma.user.create({
-  //     data: {
-  //       id: 123,
-  //       email: 'elsa@prisma.io',
-  //       name: 'Elsa Prisma',
-  //     },
-  //   });
-  //   const user = await prisma.user.findUnique({
-  //     where: {
-  //       email: 'elsa@prisma.io',
-  //     },
-  //   });
-  //   console.log(user);
 });
 
 // (async () => {
