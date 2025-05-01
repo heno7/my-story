@@ -1,4 +1,5 @@
 import express, { Express } from 'express';
+import { errorHandler } from '@heno7/common';
 import authRoutes from './controller';
 // import amqplib from 'amqplib';
 
@@ -11,6 +12,8 @@ app.use(authRoutes);
 app.get('/auth/test', (req, res) => {
   res.send('Hello World From Heno7 !!!!!');
 });
+
+app.use(errorHandler);
 
 app.listen(port, () => {
   console.log(`auth service listening on port ${port}`);

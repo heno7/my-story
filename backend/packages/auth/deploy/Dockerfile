@@ -14,6 +14,7 @@ RUN npm run db:genClient
 
 RUN npm run compile
 
+RUN cp /app/.env.dev /app/lib/.env.dev
 
 # run stage
 
@@ -31,5 +32,5 @@ COPY --from=build /app/src/prisma/client /app/lib/prisma/client
 
 EXPOSE 7777
 
-CMD ["node", "/app/lib/index.js"]
+CMD ["node", "--env-file-if-exists=/app/lib/.env.dev", "/app/lib/index.js"]
 

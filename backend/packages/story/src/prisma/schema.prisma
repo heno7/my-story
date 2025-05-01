@@ -1,0 +1,35 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "./client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_CONNECTION_STRING")
+}
+
+model story {
+  id                       Int           @id @default(autoincrement())
+  author                   String
+  title                    String?       @unique
+  shortintro               String?
+  topic                    String?
+  markdowncontent          String?
+  status                   story_status? @default(draft)
+  topic_story_topicTotopic topic?        @relation("story_topicTotopic", fields: [topic], references: [name], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model topic {
+  id                       Int     @id @default(autoincrement())
+  name                     String? @unique
+  author                   String?
+  title                    String? @unique
+  story_story_topicTotopic story[] @relation("story_topicTotopic")
+}
+
+enum story_status {
+  draft
+  publish
+  hide
+  delete
+}

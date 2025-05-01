@@ -18,15 +18,18 @@
   "devDependencies": {
     "@types/amqplib": "^0.10.7",
     "@types/express": "^5.0.1",
+    "@types/jsonwebtoken": "^9.0.9",
     "@types/node": "^22.15.2",
     "prisma": "^6.6.0",
     "typescript": "^5.8.3"
   },
   "dependencies": {
-    "@heno7/common": "^1.0.1",
+    "@heno7/common": "1.0.28",
     "@prisma/client": "^6.6.0",
     "amqplib": "^0.10.7",
+    "argon2": "^0.43.0",
     "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
     "zod": "^3.24.3"
   },
   "prisma": {

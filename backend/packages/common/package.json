@@ -1,17 +1,21 @@
 {
   "name": "@heno7/common",
-  "version": "1.0.1",
+  "version": "1.0.28",
   "description": "common service",
   "main": "lib/index.js",
   "scripts": {
     "compile": "tsc",
     "format": "prettier . --write",
     "lint": "eslint .",
-    "test": "node lib/main.spec.js"
+    "test": "node lib/main.spec.js",
+    "build:publish": "npm run compile && npm publish --access public"
   },
   "author": "heno7",
   "devDependencies": {
     "@types/node": "^22.15.3",
     "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "jsonwebtoken": "^9.0.2"
   }
 }

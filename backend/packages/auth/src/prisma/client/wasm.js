@@ -134,11 +134,6 @@ exports.Prisma.QueryMode = {
   default: 'default',
   insensitive: 'insensitive'
 };
-
-exports.Prisma.NullsOrder = {
-  first: 'first',
-  last: 'last'
-};
 exports.auth_role = exports.$Enums.auth_role = {
   admin: 'admin',
   writer: 'writer',
