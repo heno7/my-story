@@ -38,9 +38,9 @@ export function isTokenError(error: unknown): error is TokenError {
   );
 }
 
-export function createTokenErrorResponse() {
+export function createTokenErrorResponse(error: TokenError) {
   return createHttpResponseBody(401, {
-    message: 'token is invalid or expired',
+    message: error.message,
   });
 }
 

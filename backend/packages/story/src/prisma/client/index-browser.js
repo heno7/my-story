@@ -124,7 +124,9 @@ exports.Prisma.StoryScalarFieldEnum = {
   shortintro: 'shortintro',
   topic: 'topic',
   markdowncontent: 'markdowncontent',
-  status: 'status'
+  status: 'status',
+  updatedat: 'updatedat',
+  createdat: 'createdat'
 };
 
 exports.Prisma.TopicScalarFieldEnum = {

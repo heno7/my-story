@@ -9,7 +9,7 @@ export default async function createUser(
 ): Promise<void> {
   const user: UserCreateRequestDto = UserCreateRequestDto.parse(req.body);
   if (user.role === 'admin') {
-    throw new BadRequestError('Admin role is not allowed to be created');
+    throw new BadRequestError('admin role is not allowed to be created');
   }
   const existingUser = await prisma.auth_user.findFirst({
     where: {

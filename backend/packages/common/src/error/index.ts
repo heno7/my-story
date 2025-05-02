@@ -23,6 +23,8 @@ export function errorHandler(
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   _next: NextFunction,
 ): void {
+  console.error(error);
+
   if (isValidationError(error)) {
     const response = createValidationErrorResponse(error);
     res.status(response.status).json(response);
@@ -36,7 +38,7 @@ export function errorHandler(
   }
 
   if (isTokenError(error)) {
-    const response = createTokenErrorResponse();
+    const response = createTokenErrorResponse(error);
     res.status(response.status).json(response);
     return;
   }
@@ -47,8 +49,6 @@ export function errorHandler(
     return;
   }
 
-  // Handle other errors
-  console.error(error); // Log the error for debugging
   const serverErrorResponse = createHttpResponseBody(500, {
     message: 'internal server error',
   });

@@ -979,11 +979,11 @@ export namespace Prisma {
    */
 
   export type TopicCountOutputType = {
-    story_story_topicTotopic: number
+    story_story_author_topicTotopic: number
   }
 
   export type TopicCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    story_story_topicTotopic?: boolean | TopicCountOutputTypeCountStory_story_topicTotopicArgs
+    story_story_author_topicTotopic?: boolean | TopicCountOutputTypeCountStory_story_author_topicTotopicArgs
   }
 
   // Custom InputTypes
@@ -1000,7 +1000,7 @@ export namespace Prisma {
   /**
    * TopicCountOutputType without action
    */
-  export type TopicCountOutputTypeCountStory_story_topicTotopicArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type TopicCountOutputTypeCountStory_story_author_topicTotopicArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: storyWhereInput
   }
 
@@ -1037,6 +1037,8 @@ export namespace Prisma {
     topic: string | null
     markdowncontent: string | null
     status: $Enums.story_status | null
+    updatedat: Date | null
+    createdat: Date | null
   }
 
   export type StoryMaxAggregateOutputType = {
@@ -1047,6 +1049,8 @@ export namespace Prisma {
     topic: string | null
     markdowncontent: string | null
     status: $Enums.story_status | null
+    updatedat: Date | null
+    createdat: Date | null
   }
 
   export type StoryCountAggregateOutputType = {
@@ -1057,6 +1061,8 @@ export namespace Prisma {
     topic: number
     markdowncontent: number
     status: number
+    updatedat: number
+    createdat: number
     _all: number
   }
 
@@ -1077,6 +1083,8 @@ export namespace Prisma {
     topic?: true
     markdowncontent?: true
     status?: true
+    updatedat?: true
+    createdat?: true
   }
 
   export type StoryMaxAggregateInputType = {
@@ -1087,6 +1095,8 @@ export namespace Prisma {
     topic?: true
     markdowncontent?: true
     status?: true
+    updatedat?: true
+    createdat?: true
   }
 
   export type StoryCountAggregateInputType = {
@@ -1097,6 +1107,8 @@ export namespace Prisma {
     topic?: true
     markdowncontent?: true
     status?: true
+    updatedat?: true
+    createdat?: true
     _all?: true
   }
 
@@ -1194,6 +1206,8 @@ export namespace Prisma {
     topic: string | null
     markdowncontent: string | null
     status: $Enums.story_status | null
+    updatedat: Date | null
+    createdat: Date | null
     _count: StoryCountAggregateOutputType | null
     _avg: StoryAvgAggregateOutputType | null
     _sum: StorySumAggregateOutputType | null
@@ -1223,7 +1237,9 @@ export namespace Prisma {
     topic?: boolean
     markdowncontent?: boolean
     status?: boolean
-    topic_story_topicTotopic?: boolean | story$topic_story_topicTotopicArgs<ExtArgs>
+    updatedat?: boolean
+    createdat?: boolean
+    topic_story_author_topicTotopic?: boolean | story$topic_story_author_topicTotopicArgs<ExtArgs>
   }, ExtArgs["result"]["story"]>
 
   export type storySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1234,7 +1250,9 @@ export namespace Prisma {
     topic?: boolean
     markdowncontent?: boolean
     status?: boolean
-    topic_story_topicTotopic?: boolean | story$topic_story_topicTotopicArgs<ExtArgs>
+    updatedat?: boolean
+    createdat?: boolean
+    topic_story_author_topicTotopic?: boolean | story$topic_story_author_topicTotopicArgs<ExtArgs>
   }, ExtArgs["result"]["story"]>
 
   export type storySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1245,7 +1263,9 @@ export namespace Prisma {
     topic?: boolean
     markdowncontent?: boolean
     status?: boolean
-    topic_story_topicTotopic?: boolean | story$topic_story_topicTotopicArgs<ExtArgs>
+    updatedat?: boolean
+    createdat?: boolean
+    topic_story_author_topicTotopic?: boolean | story$topic_story_author_topicTotopicArgs<ExtArgs>
   }, ExtArgs["result"]["story"]>
 
   export type storySelectScalar = {
@@ -1256,23 +1276,25 @@ export namespace Prisma {
     topic?: boolean
     markdowncontent?: boolean
     status?: boolean
+    updatedat?: boolean
+    createdat?: boolean
   }
 
-  export type storyOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "author" | "title" | "shortintro" | "topic" | "markdowncontent" | "status", ExtArgs["result"]["story"]>
+  export type storyOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "author" | "title" | "shortintro" | "topic" | "markdowncontent" | "status" | "updatedat" | "createdat", ExtArgs["result"]["story"]>
   export type storyInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    topic_story_topicTotopic?: boolean | story$topic_story_topicTotopicArgs<ExtArgs>
+    topic_story_author_topicTotopic?: boolean | story$topic_story_author_topicTotopicArgs<ExtArgs>
   }
   export type storyIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    topic_story_topicTotopic?: boolean | story$topic_story_topicTotopicArgs<ExtArgs>
+    topic_story_author_topicTotopic?: boolean | story$topic_story_author_topicTotopicArgs<ExtArgs>
   }
   export type storyIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    topic_story_topicTotopic?: boolean | story$topic_story_topicTotopicArgs<ExtArgs>
+    topic_story_author_topicTotopic?: boolean | story$topic_story_author_topicTotopicArgs<ExtArgs>
   }
 
   export type $storyPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "story"
     objects: {
-      topic_story_topicTotopic: Prisma.$topicPayload<ExtArgs> | null
+      topic_story_author_topicTotopic: Prisma.$topicPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -1282,6 +1304,8 @@ export namespace Prisma {
       topic: string | null
       markdowncontent: string | null
       status: $Enums.story_status | null
+      updatedat: Date | null
+      createdat: Date | null
     }, ExtArgs["result"]["story"]>
     composites: {}
   }
@@ -1676,7 +1700,7 @@ export namespace Prisma {
    */
   export interface Prisma__storyClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    topic_story_topicTotopic<T extends story$topic_story_topicTotopicArgs<ExtArgs> = {}>(args?: Subset<T, story$topic_story_topicTotopicArgs<ExtArgs>>): Prisma__topicClient<$Result.GetResult<Prisma.$topicPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    topic_story_author_topicTotopic<T extends story$topic_story_author_topicTotopicArgs<ExtArgs> = {}>(args?: Subset<T, story$topic_story_author_topicTotopicArgs<ExtArgs>>): Prisma__topicClient<$Result.GetResult<Prisma.$topicPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1713,6 +1737,8 @@ export namespace Prisma {
     readonly topic: FieldRef<"story", 'String'>
     readonly markdowncontent: FieldRef<"story", 'String'>
     readonly status: FieldRef<"story", 'story_status'>
+    readonly updatedat: FieldRef<"story", 'DateTime'>
+    readonly createdat: FieldRef<"story", 'DateTime'>
   }
     
 
@@ -2109,9 +2135,9 @@ export namespace Prisma {
   }
 
   /**
-   * story.topic_story_topicTotopic
+   * story.topic_story_author_topicTotopic
    */
-  export type story$topic_story_topicTotopicArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type story$topic_story_author_topicTotopicArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the topic
      */
@@ -2336,7 +2362,7 @@ export namespace Prisma {
     name?: boolean
     author?: boolean
     title?: boolean
-    story_story_topicTotopic?: boolean | topic$story_story_topicTotopicArgs<ExtArgs>
+    story_story_author_topicTotopic?: boolean | topic$story_story_author_topicTotopicArgs<ExtArgs>
     _count?: boolean | TopicCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["topic"]>
 
@@ -2363,7 +2389,7 @@ export namespace Prisma {
 
   export type topicOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "author" | "title", ExtArgs["result"]["topic"]>
   export type topicInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    story_story_topicTotopic?: boolean | topic$story_story_topicTotopicArgs<ExtArgs>
+    story_story_author_topicTotopic?: boolean | topic$story_story_author_topicTotopicArgs<ExtArgs>
     _count?: boolean | TopicCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type topicIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -2372,7 +2398,7 @@ export namespace Prisma {
   export type $topicPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "topic"
     objects: {
-      story_story_topicTotopic: Prisma.$storyPayload<ExtArgs>[]
+      story_story_author_topicTotopic: Prisma.$storyPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -2773,7 +2799,7 @@ export namespace Prisma {
    */
   export interface Prisma__topicClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    story_story_topicTotopic<T extends topic$story_story_topicTotopicArgs<ExtArgs> = {}>(args?: Subset<T, topic$story_story_topicTotopicArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$storyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    story_story_author_topicTotopic<T extends topic$story_story_author_topicTotopicArgs<ExtArgs> = {}>(args?: Subset<T, topic$story_story_author_topicTotopicArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$storyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3195,9 +3221,9 @@ export namespace Prisma {
   }
 
   /**
-   * topic.story_story_topicTotopic
+   * topic.story_story_author_topicTotopic
    */
-  export type topic$story_story_topicTotopicArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type topic$story_story_author_topicTotopicArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the story
      */
@@ -3258,7 +3284,9 @@ export namespace Prisma {
     shortintro: 'shortintro',
     topic: 'topic',
     markdowncontent: 'markdowncontent',
-    status: 'status'
+    status: 'status',
+    updatedat: 'updatedat',
+    createdat: 'createdat'
   };
 
   export type StoryScalarFieldEnum = (typeof StoryScalarFieldEnum)[keyof typeof StoryScalarFieldEnum]
@@ -3346,6 +3374,20 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'DateTime'
+   */
+  export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+    
+
+
+  /**
+   * Reference to a field of type 'DateTime[]'
+   */
+  export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+  /**
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -3373,7 +3415,9 @@ export namespace Prisma {
     topic?: StringNullableFilter<"story"> | string | null
     markdowncontent?: StringNullableFilter<"story"> | string | null
     status?: Enumstory_statusNullableFilter<"story"> | $Enums.story_status | null
-    topic_story_topicTotopic?: XOR<TopicNullableScalarRelationFilter, topicWhereInput> | null
+    updatedat?: DateTimeNullableFilter<"story"> | Date | string | null
+    createdat?: DateTimeNullableFilter<"story"> | Date | string | null
+    topic_story_author_topicTotopic?: XOR<TopicNullableScalarRelationFilter, topicWhereInput> | null
   }
 
   export type storyOrderByWithRelationInput = {
@@ -3384,22 +3428,26 @@ export namespace Prisma {
     topic?: SortOrderInput | SortOrder
     markdowncontent?: SortOrderInput | SortOrder
     status?: SortOrderInput | SortOrder
-    topic_story_topicTotopic?: topicOrderByWithRelationInput
+    updatedat?: SortOrderInput | SortOrder
+    createdat?: SortOrderInput | SortOrder
+    topic_story_author_topicTotopic?: topicOrderByWithRelationInput
   }
 
   export type storyWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    title?: string
     AND?: storyWhereInput | storyWhereInput[]
     OR?: storyWhereInput[]
     NOT?: storyWhereInput | storyWhereInput[]
     author?: StringFilter<"story"> | string
+    title?: StringNullableFilter<"story"> | string | null
     shortintro?: StringNullableFilter<"story"> | string | null
     topic?: StringNullableFilter<"story"> | string | null
     markdowncontent?: StringNullableFilter<"story"> | string | null
     status?: Enumstory_statusNullableFilter<"story"> | $Enums.story_status | null
-    topic_story_topicTotopic?: XOR<TopicNullableScalarRelationFilter, topicWhereInput> | null
-  }, "id" | "title">
+    updatedat?: DateTimeNullableFilter<"story"> | Date | string | null
+    createdat?: DateTimeNullableFilter<"story"> | Date | string | null
+    topic_story_author_topicTotopic?: XOR<TopicNullableScalarRelationFilter, topicWhereInput> | null
+  }, "id">
 
   export type storyOrderByWithAggregationInput = {
     id?: SortOrder
@@ -3409,6 +3457,8 @@ export namespace Prisma {
     topic?: SortOrderInput | SortOrder
     markdowncontent?: SortOrderInput | SortOrder
     status?: SortOrderInput | SortOrder
+    updatedat?: SortOrderInput | SortOrder
+    createdat?: SortOrderInput | SortOrder
     _count?: storyCountOrderByAggregateInput
     _avg?: storyAvgOrderByAggregateInput
     _max?: storyMaxOrderByAggregateInput
@@ -3427,6 +3477,8 @@ export namespace Prisma {
     topic?: StringNullableWithAggregatesFilter<"story"> | string | null
     markdowncontent?: StringNullableWithAggregatesFilter<"story"> | string | null
     status?: Enumstory_statusNullableWithAggregatesFilter<"story"> | $Enums.story_status | null
+    updatedat?: DateTimeNullableWithAggregatesFilter<"story"> | Date | string | null
+    createdat?: DateTimeNullableWithAggregatesFilter<"story"> | Date | string | null
   }
 
   export type topicWhereInput = {
@@ -3437,7 +3489,7 @@ export namespace Prisma {
     name?: StringNullableFilter<"topic"> | string | null
     author?: StringNullableFilter<"topic"> | string | null
     title?: StringNullableFilter<"topic"> | string | null
-    story_story_topicTotopic?: StoryListRelationFilter
+    story_story_author_topicTotopic?: StoryListRelationFilter
   }
 
   export type topicOrderByWithRelationInput = {
@@ -3445,19 +3497,20 @@ export namespace Prisma {
     name?: SortOrderInput | SortOrder
     author?: SortOrderInput | SortOrder
     title?: SortOrderInput | SortOrder
-    story_story_topicTotopic?: storyOrderByRelationAggregateInput
+    story_story_author_topicTotopic?: storyOrderByRelationAggregateInput
   }
 
   export type topicWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    name?: string
-    title?: string
+    name_author?: topicNameAuthorCompoundUniqueInput
     AND?: topicWhereInput | topicWhereInput[]
     OR?: topicWhereInput[]
     NOT?: topicWhereInput | topicWhereInput[]
+    name?: StringNullableFilter<"topic"> | string | null
     author?: StringNullableFilter<"topic"> | string | null
-    story_story_topicTotopic?: StoryListRelationFilter
-  }, "id" | "name" | "title">
+    title?: StringNullableFilter<"topic"> | string | null
+    story_story_author_topicTotopic?: StoryListRelationFilter
+  }, "id" | "name_author">
 
   export type topicOrderByWithAggregationInput = {
     id?: SortOrder
@@ -3482,12 +3535,13 @@ export namespace Prisma {
   }
 
   export type storyCreateInput = {
-    author: string
     title?: string | null
     shortintro?: string | null
     markdowncontent?: string | null
     status?: $Enums.story_status | null
-    topic_story_topicTotopic?: topicCreateNestedOneWithoutStory_story_topicTotopicInput
+    updatedat?: Date | string | null
+    createdat?: Date | string | null
+    topic_story_author_topicTotopic?: topicCreateNestedOneWithoutStory_story_author_topicTotopicInput
   }
 
   export type storyUncheckedCreateInput = {
@@ -3498,15 +3552,18 @@ export namespace Prisma {
     topic?: string | null
     markdowncontent?: string | null
     status?: $Enums.story_status | null
+    updatedat?: Date | string | null
+    createdat?: Date | string | null
   }
 
   export type storyUpdateInput = {
-    author?: StringFieldUpdateOperationsInput | string
     title?: NullableStringFieldUpdateOperationsInput | string | null
     shortintro?: NullableStringFieldUpdateOperationsInput | string | null
     markdowncontent?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableEnumstory_statusFieldUpdateOperationsInput | $Enums.story_status | null
-    topic_story_topicTotopic?: topicUpdateOneWithoutStory_story_topicTotopicNestedInput
+    updatedat?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdat?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    topic_story_author_topicTotopic?: topicUpdateOneWithoutStory_story_author_topicTotopicNestedInput
   }
 
   export type storyUncheckedUpdateInput = {
@@ -3517,6 +3574,8 @@ export namespace Prisma {
     topic?: NullableStringFieldUpdateOperationsInput | string | null
     markdowncontent?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableEnumstory_statusFieldUpdateOperationsInput | $Enums.story_status | null
+    updatedat?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdat?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type storyCreateManyInput = {
@@ -3527,14 +3586,17 @@ export namespace Prisma {
     topic?: string | null
     markdowncontent?: string | null
     status?: $Enums.story_status | null
+    updatedat?: Date | string | null
+    createdat?: Date | string | null
   }
 
   export type storyUpdateManyMutationInput = {
-    author?: StringFieldUpdateOperationsInput | string
     title?: NullableStringFieldUpdateOperationsInput | string | null
     shortintro?: NullableStringFieldUpdateOperationsInput | string | null
     markdowncontent?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableEnumstory_statusFieldUpdateOperationsInput | $Enums.story_status | null
+    updatedat?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdat?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type storyUncheckedUpdateManyInput = {
@@ -3545,13 +3607,15 @@ export namespace Prisma {
     topic?: NullableStringFieldUpdateOperationsInput | string | null
     markdowncontent?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableEnumstory_statusFieldUpdateOperationsInput | $Enums.story_status | null
+    updatedat?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdat?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type topicCreateInput = {
     name?: string | null
     author?: string | null
     title?: string | null
-    story_story_topicTotopic?: storyCreateNestedManyWithoutTopic_story_topicTotopicInput
+    story_story_author_topicTotopic?: storyCreateNestedManyWithoutTopic_story_author_topicTotopicInput
   }
 
   export type topicUncheckedCreateInput = {
@@ -3559,14 +3623,14 @@ export namespace Prisma {
     name?: string | null
     author?: string | null
     title?: string | null
-    story_story_topicTotopic?: storyUncheckedCreateNestedManyWithoutTopic_story_topicTotopicInput
+    story_story_author_topicTotopic?: storyUncheckedCreateNestedManyWithoutTopic_story_author_topicTotopicInput
   }
 
   export type topicUpdateInput = {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     author?: NullableStringFieldUpdateOperationsInput | string | null
     title?: NullableStringFieldUpdateOperationsInput | string | null
-    story_story_topicTotopic?: storyUpdateManyWithoutTopic_story_topicTotopicNestedInput
+    story_story_author_topicTotopic?: storyUpdateManyWithoutTopic_story_author_topicTotopicNestedInput
   }
 
   export type topicUncheckedUpdateInput = {
@@ -3574,7 +3638,7 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     author?: NullableStringFieldUpdateOperationsInput | string | null
     title?: NullableStringFieldUpdateOperationsInput | string | null
-    story_story_topicTotopic?: storyUncheckedUpdateManyWithoutTopic_story_topicTotopicNestedInput
+    story_story_author_topicTotopic?: storyUncheckedUpdateManyWithoutTopic_story_author_topicTotopicNestedInput
   }
 
   export type topicCreateManyInput = {
@@ -3645,6 +3709,17 @@ export namespace Prisma {
     not?: NestedEnumstory_statusNullableFilter<$PrismaModel> | $Enums.story_status | null
   }
 
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
   export type TopicNullableScalarRelationFilter = {
     is?: topicWhereInput | null
     isNot?: topicWhereInput | null
@@ -3663,6 +3738,8 @@ export namespace Prisma {
     topic?: SortOrder
     markdowncontent?: SortOrder
     status?: SortOrder
+    updatedat?: SortOrder
+    createdat?: SortOrder
   }
 
   export type storyAvgOrderByAggregateInput = {
@@ -3677,6 +3754,8 @@ export namespace Prisma {
     topic?: SortOrder
     markdowncontent?: SortOrder
     status?: SortOrder
+    updatedat?: SortOrder
+    createdat?: SortOrder
   }
 
   export type storyMinOrderByAggregateInput = {
@@ -3687,6 +3766,8 @@ export namespace Prisma {
     topic?: SortOrder
     markdowncontent?: SortOrder
     status?: SortOrder
+    updatedat?: SortOrder
+    createdat?: SortOrder
   }
 
   export type storySumOrderByAggregateInput = {
@@ -3755,6 +3836,20 @@ export namespace Prisma {
     _max?: NestedEnumstory_statusNullableFilter<$PrismaModel>
   }
 
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
   export type StoryListRelationFilter = {
     every?: storyWhereInput
     some?: storyWhereInput
@@ -3763,6 +3858,11 @@ export namespace Prisma {
 
   export type storyOrderByRelationAggregateInput = {
     _count?: SortOrder
+  }
+
+  export type topicNameAuthorCompoundUniqueInput = {
+    name: string
+    author: string
   }
 
   export type topicCountOrderByAggregateInput = {
@@ -3794,14 +3894,10 @@ export namespace Prisma {
     id?: SortOrder
   }
 
-  export type topicCreateNestedOneWithoutStory_story_topicTotopicInput = {
-    create?: XOR<topicCreateWithoutStory_story_topicTotopicInput, topicUncheckedCreateWithoutStory_story_topicTotopicInput>
-    connectOrCreate?: topicCreateOrConnectWithoutStory_story_topicTotopicInput
+  export type topicCreateNestedOneWithoutStory_story_author_topicTotopicInput = {
+    create?: XOR<topicCreateWithoutStory_story_author_topicTotopicInput, topicUncheckedCreateWithoutStory_story_author_topicTotopicInput>
+    connectOrCreate?: topicCreateOrConnectWithoutStory_story_author_topicTotopicInput
     connect?: topicWhereUniqueInput
-  }
-
-  export type StringFieldUpdateOperationsInput = {
-    set?: string
   }
 
   export type NullableStringFieldUpdateOperationsInput = {
@@ -3812,14 +3908,18 @@ export namespace Prisma {
     set?: $Enums.story_status | null
   }
 
-  export type topicUpdateOneWithoutStory_story_topicTotopicNestedInput = {
-    create?: XOR<topicCreateWithoutStory_story_topicTotopicInput, topicUncheckedCreateWithoutStory_story_topicTotopicInput>
-    connectOrCreate?: topicCreateOrConnectWithoutStory_story_topicTotopicInput
-    upsert?: topicUpsertWithoutStory_story_topicTotopicInput
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
+  }
+
+  export type topicUpdateOneWithoutStory_story_author_topicTotopicNestedInput = {
+    create?: XOR<topicCreateWithoutStory_story_author_topicTotopicInput, topicUncheckedCreateWithoutStory_story_author_topicTotopicInput>
+    connectOrCreate?: topicCreateOrConnectWithoutStory_story_author_topicTotopicInput
+    upsert?: topicUpsertWithoutStory_story_author_topicTotopicInput
     disconnect?: topicWhereInput | boolean
     delete?: topicWhereInput | boolean
     connect?: topicWhereUniqueInput
-    update?: XOR<XOR<topicUpdateToOneWithWhereWithoutStory_story_topicTotopicInput, topicUpdateWithoutStory_story_topicTotopicInput>, topicUncheckedUpdateWithoutStory_story_topicTotopicInput>
+    update?: XOR<XOR<topicUpdateToOneWithWhereWithoutStory_story_author_topicTotopicInput, topicUpdateWithoutStory_story_author_topicTotopicInput>, topicUncheckedUpdateWithoutStory_story_author_topicTotopicInput>
   }
 
   export type IntFieldUpdateOperationsInput = {
@@ -3830,45 +3930,49 @@ export namespace Prisma {
     divide?: number
   }
 
-  export type storyCreateNestedManyWithoutTopic_story_topicTotopicInput = {
-    create?: XOR<storyCreateWithoutTopic_story_topicTotopicInput, storyUncheckedCreateWithoutTopic_story_topicTotopicInput> | storyCreateWithoutTopic_story_topicTotopicInput[] | storyUncheckedCreateWithoutTopic_story_topicTotopicInput[]
-    connectOrCreate?: storyCreateOrConnectWithoutTopic_story_topicTotopicInput | storyCreateOrConnectWithoutTopic_story_topicTotopicInput[]
-    createMany?: storyCreateManyTopic_story_topicTotopicInputEnvelope
+  export type StringFieldUpdateOperationsInput = {
+    set?: string
+  }
+
+  export type storyCreateNestedManyWithoutTopic_story_author_topicTotopicInput = {
+    create?: XOR<storyCreateWithoutTopic_story_author_topicTotopicInput, storyUncheckedCreateWithoutTopic_story_author_topicTotopicInput> | storyCreateWithoutTopic_story_author_topicTotopicInput[] | storyUncheckedCreateWithoutTopic_story_author_topicTotopicInput[]
+    connectOrCreate?: storyCreateOrConnectWithoutTopic_story_author_topicTotopicInput | storyCreateOrConnectWithoutTopic_story_author_topicTotopicInput[]
+    createMany?: storyCreateManyTopic_story_author_topicTotopicInputEnvelope
     connect?: storyWhereUniqueInput | storyWhereUniqueInput[]
   }
 
-  export type storyUncheckedCreateNestedManyWithoutTopic_story_topicTotopicInput = {
-    create?: XOR<storyCreateWithoutTopic_story_topicTotopicInput, storyUncheckedCreateWithoutTopic_story_topicTotopicInput> | storyCreateWithoutTopic_story_topicTotopicInput[] | storyUncheckedCreateWithoutTopic_story_topicTotopicInput[]
-    connectOrCreate?: storyCreateOrConnectWithoutTopic_story_topicTotopicInput | storyCreateOrConnectWithoutTopic_story_topicTotopicInput[]
-    createMany?: storyCreateManyTopic_story_topicTotopicInputEnvelope
+  export type storyUncheckedCreateNestedManyWithoutTopic_story_author_topicTotopicInput = {
+    create?: XOR<storyCreateWithoutTopic_story_author_topicTotopicInput, storyUncheckedCreateWithoutTopic_story_author_topicTotopicInput> | storyCreateWithoutTopic_story_author_topicTotopicInput[] | storyUncheckedCreateWithoutTopic_story_author_topicTotopicInput[]
+    connectOrCreate?: storyCreateOrConnectWithoutTopic_story_author_topicTotopicInput | storyCreateOrConnectWithoutTopic_story_author_topicTotopicInput[]
+    createMany?: storyCreateManyTopic_story_author_topicTotopicInputEnvelope
     connect?: storyWhereUniqueInput | storyWhereUniqueInput[]
   }
 
-  export type storyUpdateManyWithoutTopic_story_topicTotopicNestedInput = {
-    create?: XOR<storyCreateWithoutTopic_story_topicTotopicInput, storyUncheckedCreateWithoutTopic_story_topicTotopicInput> | storyCreateWithoutTopic_story_topicTotopicInput[] | storyUncheckedCreateWithoutTopic_story_topicTotopicInput[]
-    connectOrCreate?: storyCreateOrConnectWithoutTopic_story_topicTotopicInput | storyCreateOrConnectWithoutTopic_story_topicTotopicInput[]
-    upsert?: storyUpsertWithWhereUniqueWithoutTopic_story_topicTotopicInput | storyUpsertWithWhereUniqueWithoutTopic_story_topicTotopicInput[]
-    createMany?: storyCreateManyTopic_story_topicTotopicInputEnvelope
+  export type storyUpdateManyWithoutTopic_story_author_topicTotopicNestedInput = {
+    create?: XOR<storyCreateWithoutTopic_story_author_topicTotopicInput, storyUncheckedCreateWithoutTopic_story_author_topicTotopicInput> | storyCreateWithoutTopic_story_author_topicTotopicInput[] | storyUncheckedCreateWithoutTopic_story_author_topicTotopicInput[]
+    connectOrCreate?: storyCreateOrConnectWithoutTopic_story_author_topicTotopicInput | storyCreateOrConnectWithoutTopic_story_author_topicTotopicInput[]
+    upsert?: storyUpsertWithWhereUniqueWithoutTopic_story_author_topicTotopicInput | storyUpsertWithWhereUniqueWithoutTopic_story_author_topicTotopicInput[]
+    createMany?: storyCreateManyTopic_story_author_topicTotopicInputEnvelope
     set?: storyWhereUniqueInput | storyWhereUniqueInput[]
     disconnect?: storyWhereUniqueInput | storyWhereUniqueInput[]
     delete?: storyWhereUniqueInput | storyWhereUniqueInput[]
     connect?: storyWhereUniqueInput | storyWhereUniqueInput[]
-    update?: storyUpdateWithWhereUniqueWithoutTopic_story_topicTotopicInput | storyUpdateWithWhereUniqueWithoutTopic_story_topicTotopicInput[]
-    updateMany?: storyUpdateManyWithWhereWithoutTopic_story_topicTotopicInput | storyUpdateManyWithWhereWithoutTopic_story_topicTotopicInput[]
+    update?: storyUpdateWithWhereUniqueWithoutTopic_story_author_topicTotopicInput | storyUpdateWithWhereUniqueWithoutTopic_story_author_topicTotopicInput[]
+    updateMany?: storyUpdateManyWithWhereWithoutTopic_story_author_topicTotopicInput | storyUpdateManyWithWhereWithoutTopic_story_author_topicTotopicInput[]
     deleteMany?: storyScalarWhereInput | storyScalarWhereInput[]
   }
 
-  export type storyUncheckedUpdateManyWithoutTopic_story_topicTotopicNestedInput = {
-    create?: XOR<storyCreateWithoutTopic_story_topicTotopicInput, storyUncheckedCreateWithoutTopic_story_topicTotopicInput> | storyCreateWithoutTopic_story_topicTotopicInput[] | storyUncheckedCreateWithoutTopic_story_topicTotopicInput[]
-    connectOrCreate?: storyCreateOrConnectWithoutTopic_story_topicTotopicInput | storyCreateOrConnectWithoutTopic_story_topicTotopicInput[]
-    upsert?: storyUpsertWithWhereUniqueWithoutTopic_story_topicTotopicInput | storyUpsertWithWhereUniqueWithoutTopic_story_topicTotopicInput[]
-    createMany?: storyCreateManyTopic_story_topicTotopicInputEnvelope
+  export type storyUncheckedUpdateManyWithoutTopic_story_author_topicTotopicNestedInput = {
+    create?: XOR<storyCreateWithoutTopic_story_author_topicTotopicInput, storyUncheckedCreateWithoutTopic_story_author_topicTotopicInput> | storyCreateWithoutTopic_story_author_topicTotopicInput[] | storyUncheckedCreateWithoutTopic_story_author_topicTotopicInput[]
+    connectOrCreate?: storyCreateOrConnectWithoutTopic_story_author_topicTotopicInput | storyCreateOrConnectWithoutTopic_story_author_topicTotopicInput[]
+    upsert?: storyUpsertWithWhereUniqueWithoutTopic_story_author_topicTotopicInput | storyUpsertWithWhereUniqueWithoutTopic_story_author_topicTotopicInput[]
+    createMany?: storyCreateManyTopic_story_author_topicTotopicInputEnvelope
     set?: storyWhereUniqueInput | storyWhereUniqueInput[]
     disconnect?: storyWhereUniqueInput | storyWhereUniqueInput[]
     delete?: storyWhereUniqueInput | storyWhereUniqueInput[]
     connect?: storyWhereUniqueInput | storyWhereUniqueInput[]
-    update?: storyUpdateWithWhereUniqueWithoutTopic_story_topicTotopicInput | storyUpdateWithWhereUniqueWithoutTopic_story_topicTotopicInput[]
-    updateMany?: storyUpdateManyWithWhereWithoutTopic_story_topicTotopicInput | storyUpdateManyWithWhereWithoutTopic_story_topicTotopicInput[]
+    update?: storyUpdateWithWhereUniqueWithoutTopic_story_author_topicTotopicInput | storyUpdateWithWhereUniqueWithoutTopic_story_author_topicTotopicInput[]
+    updateMany?: storyUpdateManyWithWhereWithoutTopic_story_author_topicTotopicInput | storyUpdateManyWithWhereWithoutTopic_story_author_topicTotopicInput[]
     deleteMany?: storyScalarWhereInput | storyScalarWhereInput[]
   }
 
@@ -3916,6 +4020,17 @@ export namespace Prisma {
     in?: $Enums.story_status[] | ListEnumstory_statusFieldRefInput<$PrismaModel> | null
     notIn?: $Enums.story_status[] | ListEnumstory_statusFieldRefInput<$PrismaModel> | null
     not?: NestedEnumstory_statusNullableFilter<$PrismaModel> | $Enums.story_status | null
+  }
+
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
 
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
@@ -4000,89 +4115,105 @@ export namespace Prisma {
     _max?: NestedEnumstory_statusNullableFilter<$PrismaModel>
   }
 
-  export type topicCreateWithoutStory_story_topicTotopicInput = {
+  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
+  export type topicCreateWithoutStory_story_author_topicTotopicInput = {
     name?: string | null
     author?: string | null
     title?: string | null
   }
 
-  export type topicUncheckedCreateWithoutStory_story_topicTotopicInput = {
+  export type topicUncheckedCreateWithoutStory_story_author_topicTotopicInput = {
     id?: number
     name?: string | null
     author?: string | null
     title?: string | null
   }
 
-  export type topicCreateOrConnectWithoutStory_story_topicTotopicInput = {
+  export type topicCreateOrConnectWithoutStory_story_author_topicTotopicInput = {
     where: topicWhereUniqueInput
-    create: XOR<topicCreateWithoutStory_story_topicTotopicInput, topicUncheckedCreateWithoutStory_story_topicTotopicInput>
+    create: XOR<topicCreateWithoutStory_story_author_topicTotopicInput, topicUncheckedCreateWithoutStory_story_author_topicTotopicInput>
   }
 
-  export type topicUpsertWithoutStory_story_topicTotopicInput = {
-    update: XOR<topicUpdateWithoutStory_story_topicTotopicInput, topicUncheckedUpdateWithoutStory_story_topicTotopicInput>
-    create: XOR<topicCreateWithoutStory_story_topicTotopicInput, topicUncheckedCreateWithoutStory_story_topicTotopicInput>
+  export type topicUpsertWithoutStory_story_author_topicTotopicInput = {
+    update: XOR<topicUpdateWithoutStory_story_author_topicTotopicInput, topicUncheckedUpdateWithoutStory_story_author_topicTotopicInput>
+    create: XOR<topicCreateWithoutStory_story_author_topicTotopicInput, topicUncheckedCreateWithoutStory_story_author_topicTotopicInput>
     where?: topicWhereInput
   }
 
-  export type topicUpdateToOneWithWhereWithoutStory_story_topicTotopicInput = {
+  export type topicUpdateToOneWithWhereWithoutStory_story_author_topicTotopicInput = {
     where?: topicWhereInput
-    data: XOR<topicUpdateWithoutStory_story_topicTotopicInput, topicUncheckedUpdateWithoutStory_story_topicTotopicInput>
+    data: XOR<topicUpdateWithoutStory_story_author_topicTotopicInput, topicUncheckedUpdateWithoutStory_story_author_topicTotopicInput>
   }
 
-  export type topicUpdateWithoutStory_story_topicTotopicInput = {
+  export type topicUpdateWithoutStory_story_author_topicTotopicInput = {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     author?: NullableStringFieldUpdateOperationsInput | string | null
     title?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type topicUncheckedUpdateWithoutStory_story_topicTotopicInput = {
+  export type topicUncheckedUpdateWithoutStory_story_author_topicTotopicInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: NullableStringFieldUpdateOperationsInput | string | null
     author?: NullableStringFieldUpdateOperationsInput | string | null
     title?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type storyCreateWithoutTopic_story_topicTotopicInput = {
-    author: string
+  export type storyCreateWithoutTopic_story_author_topicTotopicInput = {
     title?: string | null
     shortintro?: string | null
     markdowncontent?: string | null
     status?: $Enums.story_status | null
+    updatedat?: Date | string | null
+    createdat?: Date | string | null
   }
 
-  export type storyUncheckedCreateWithoutTopic_story_topicTotopicInput = {
+  export type storyUncheckedCreateWithoutTopic_story_author_topicTotopicInput = {
     id?: number
-    author: string
     title?: string | null
     shortintro?: string | null
     markdowncontent?: string | null
     status?: $Enums.story_status | null
+    updatedat?: Date | string | null
+    createdat?: Date | string | null
   }
 
-  export type storyCreateOrConnectWithoutTopic_story_topicTotopicInput = {
+  export type storyCreateOrConnectWithoutTopic_story_author_topicTotopicInput = {
     where: storyWhereUniqueInput
-    create: XOR<storyCreateWithoutTopic_story_topicTotopicInput, storyUncheckedCreateWithoutTopic_story_topicTotopicInput>
+    create: XOR<storyCreateWithoutTopic_story_author_topicTotopicInput, storyUncheckedCreateWithoutTopic_story_author_topicTotopicInput>
   }
 
-  export type storyCreateManyTopic_story_topicTotopicInputEnvelope = {
-    data: storyCreateManyTopic_story_topicTotopicInput | storyCreateManyTopic_story_topicTotopicInput[]
+  export type storyCreateManyTopic_story_author_topicTotopicInputEnvelope = {
+    data: storyCreateManyTopic_story_author_topicTotopicInput | storyCreateManyTopic_story_author_topicTotopicInput[]
     skipDuplicates?: boolean
   }
 
-  export type storyUpsertWithWhereUniqueWithoutTopic_story_topicTotopicInput = {
+  export type storyUpsertWithWhereUniqueWithoutTopic_story_author_topicTotopicInput = {
     where: storyWhereUniqueInput
-    update: XOR<storyUpdateWithoutTopic_story_topicTotopicInput, storyUncheckedUpdateWithoutTopic_story_topicTotopicInput>
-    create: XOR<storyCreateWithoutTopic_story_topicTotopicInput, storyUncheckedCreateWithoutTopic_story_topicTotopicInput>
+    update: XOR<storyUpdateWithoutTopic_story_author_topicTotopicInput, storyUncheckedUpdateWithoutTopic_story_author_topicTotopicInput>
+    create: XOR<storyCreateWithoutTopic_story_author_topicTotopicInput, storyUncheckedCreateWithoutTopic_story_author_topicTotopicInput>
   }
 
-  export type storyUpdateWithWhereUniqueWithoutTopic_story_topicTotopicInput = {
+  export type storyUpdateWithWhereUniqueWithoutTopic_story_author_topicTotopicInput = {
     where: storyWhereUniqueInput
-    data: XOR<storyUpdateWithoutTopic_story_topicTotopicInput, storyUncheckedUpdateWithoutTopic_story_topicTotopicInput>
+    data: XOR<storyUpdateWithoutTopic_story_author_topicTotopicInput, storyUncheckedUpdateWithoutTopic_story_author_topicTotopicInput>
   }
 
-  export type storyUpdateManyWithWhereWithoutTopic_story_topicTotopicInput = {
+  export type storyUpdateManyWithWhereWithoutTopic_story_author_topicTotopicInput = {
     where: storyScalarWhereInput
-    data: XOR<storyUpdateManyMutationInput, storyUncheckedUpdateManyWithoutTopic_story_topicTotopicInput>
+    data: XOR<storyUpdateManyMutationInput, storyUncheckedUpdateManyWithoutTopic_story_author_topicTotopicInput>
   }
 
   export type storyScalarWhereInput = {
@@ -4096,41 +4227,47 @@ export namespace Prisma {
     topic?: StringNullableFilter<"story"> | string | null
     markdowncontent?: StringNullableFilter<"story"> | string | null
     status?: Enumstory_statusNullableFilter<"story"> | $Enums.story_status | null
+    updatedat?: DateTimeNullableFilter<"story"> | Date | string | null
+    createdat?: DateTimeNullableFilter<"story"> | Date | string | null
   }
 
-  export type storyCreateManyTopic_story_topicTotopicInput = {
+  export type storyCreateManyTopic_story_author_topicTotopicInput = {
     id?: number
-    author: string
     title?: string | null
     shortintro?: string | null
     markdowncontent?: string | null
     status?: $Enums.story_status | null
+    updatedat?: Date | string | null
+    createdat?: Date | string | null
   }
 
-  export type storyUpdateWithoutTopic_story_topicTotopicInput = {
-    author?: StringFieldUpdateOperationsInput | string
+  export type storyUpdateWithoutTopic_story_author_topicTotopicInput = {
     title?: NullableStringFieldUpdateOperationsInput | string | null
     shortintro?: NullableStringFieldUpdateOperationsInput | string | null
     markdowncontent?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableEnumstory_statusFieldUpdateOperationsInput | $Enums.story_status | null
+    updatedat?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdat?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type storyUncheckedUpdateWithoutTopic_story_topicTotopicInput = {
+  export type storyUncheckedUpdateWithoutTopic_story_author_topicTotopicInput = {
     id?: IntFieldUpdateOperationsInput | number
-    author?: StringFieldUpdateOperationsInput | string
     title?: NullableStringFieldUpdateOperationsInput | string | null
     shortintro?: NullableStringFieldUpdateOperationsInput | string | null
     markdowncontent?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableEnumstory_statusFieldUpdateOperationsInput | $Enums.story_status | null
+    updatedat?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdat?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type storyUncheckedUpdateManyWithoutTopic_story_topicTotopicInput = {
+  export type storyUncheckedUpdateManyWithoutTopic_story_author_topicTotopicInput = {
     id?: IntFieldUpdateOperationsInput | number
-    author?: StringFieldUpdateOperationsInput | string
     title?: NullableStringFieldUpdateOperationsInput | string | null
     shortintro?: NullableStringFieldUpdateOperationsInput | string | null
     markdowncontent?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableEnumstory_statusFieldUpdateOperationsInput | $Enums.story_status | null
+    updatedat?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdat?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
 

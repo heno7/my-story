@@ -8,19 +8,16 @@ build:
       context: ./packages/auth
       docker:
         dockerfile: ./deploy/Dockerfile
-    # - image: user-image
-    #   context: ./packages/user
-    #   docker:
-    #     dockerfile: Dockerfile
-    # - image: story-image
-    #   context: ./packages/story
-    #   docker:
-    #     dockerfile: Dockerfile
-  local: { push: true }
+    - image: heno77/story-image
+      context: ./packages/story
+      docker:
+        dockerfile: ./deploy/Dockerfile
+  local: { push: false }
 
 manifests:
   rawYaml:
     - ./packages/auth/deploy/deployment.yaml
+    - ./packages/story/deploy/deployment.yaml
     - ./infra/ingress.yaml
     - ./infra/rabbitmq.yaml
     # - ./infra/postgres.yaml

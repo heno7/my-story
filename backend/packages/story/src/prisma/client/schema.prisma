@@ -5,26 +5,30 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DB_CONNECTION_STRING")
+  url      = "postgresql://postgres:postgres@172.17.0.1:5432/story?schema=public"
 }
 
 model story {
-  id                       Int           @id @default(autoincrement())
-  author                   String
-  title                    String?       @unique
-  shortintro               String?
-  topic                    String?
-  markdowncontent          String?
-  status                   story_status? @default(draft)
-  topic_story_topicTotopic topic?        @relation("story_topicTotopic", fields: [topic], references: [name], onDelete: NoAction, onUpdate: NoAction)
+  id                              Int           @id @default(autoincrement())
+  author                          String
+  title                           String?
+  shortintro                      String?
+  topic                           String?
+  markdowncontent                 String?
+  status                          story_status? @default(draft)
+  updatedat                       DateTime?     @db.Timestamp(6)
+  createdat                       DateTime?     @default(dbgenerated("LOCALTIMESTAMP")) @db.Timestamp(6)
+  topic_story_author_topicTotopic topic?        @relation("story_author_topicTotopic", fields: [author, topic], references: [author, name], onDelete: NoAction, onUpdate: NoAction)
 }
 
 model topic {
-  id                       Int     @id @default(autoincrement())
-  name                     String? @unique
-  author                   String?
-  title                    String? @unique
-  story_story_topicTotopic story[] @relation("story_topicTotopic")
+  id                              Int     @id @default(autoincrement())
+  name                            String?
+  author                          String?
+  title                           String?
+  story_story_author_topicTotopic story[] @relation("story_author_topicTotopic")
+
+  @@unique([name, author])
 }
 
 enum story_status {

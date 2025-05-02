@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import prisma from '../prisma/prismaClient';
-import { createHttpResponseBody } from '@heno7/common';
+import { BadRequestError, createHttpResponseBody } from '@heno7/common';
 
 export async function getUsers(req: Request, res: Response): Promise<void> {
   const users = await prisma.auth_user.findMany({
@@ -22,6 +22,11 @@ export async function getUser(req: Request, res: Response): Promise<void> {
       password: true,
     },
   });
+
+  if (!user) {
+    throw new BadRequestError('user with this id does not exist');
+  }
+
   const userResponse = createHttpResponseBody(200, user);
 
   res.status(200).json(userResponse);

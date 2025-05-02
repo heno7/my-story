@@ -18,11 +18,11 @@ export default async function createAuthToken(
   });
 
   if (!user) {
-    throw new BadRequestError('Bad Request');
+    throw new BadRequestError('In valid email or password');
   }
 
   if (!(await verifyPassword(creInfo.password, user.password))) {
-    throw new BadRequestError('Bad Request');
+    throw new BadRequestError('In valid email or password');
   }
 
   const TOKEN_EPXIRATION_TIME = process.env.TOKEN_EXPIRATION_TIME || '1h';

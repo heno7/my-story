@@ -16,7 +16,10 @@ export function createValidationErrorResponse(
     status: 400,
     data: {
       message: error.issues
-        .map((issue) => issue.path[0] + ' ' + issue.message.toLowerCase())
+        .map((issue) => {
+          if (issue.code === 'invalid_type') return 'invalid body request';
+          return issue.path[0] + ' ' + issue.message.toLowerCase();
+        })
         .join(', '),
     },
   };

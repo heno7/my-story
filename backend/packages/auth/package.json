@@ -24,7 +24,7 @@
     "typescript": "^5.8.3"
   },
   "dependencies": {
-    "@heno7/common": "1.0.28",
+    "@heno7/common": "1.0.31",
     "@prisma/client": "^6.6.0",
     "amqplib": "^0.10.7",
     "argon2": "^0.43.0",

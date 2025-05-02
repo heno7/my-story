@@ -1,22 +1,22 @@
 import express, { Express } from 'express';
 import { errorHandler } from '@heno7/common';
-import authRoutes from './controller';
+import storyRoutes from './controller';
 // import amqplib from 'amqplib';
 
 const app: Express = express();
 const port = 7777;
 app.use(express.json());
 
-app.use(authRoutes);
+app.use(storyRoutes);
 
-app.get('/auth/test', (req, res) => {
+app.get('/story/test', (req, res) => {
   res.send('Hello World From Heno7 !!!!!');
 });
 
 app.use(errorHandler);
 
 app.listen(port, () => {
-  console.log(`auth service listening on port ${port}`);
+  console.log(`story service listening on port ${port}`);
 });
 
 // (async () => {
