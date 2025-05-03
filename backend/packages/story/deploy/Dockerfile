@@ -30,6 +30,8 @@ COPY --from=build /app/lib /app/lib
 
 COPY --from=build /app/src/prisma/client /app/lib/prisma/client
 
+COPY --from=build /app/src/rpc/proto /app/lib/rpc/proto
+
 EXPOSE 7777
 
 CMD ["node", "--env-file-if-exists=/app/lib/.env.dev", "/app/lib/index.js"]

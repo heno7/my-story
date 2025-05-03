@@ -15,14 +15,22 @@ export function createValidationErrorResponse(
   return {
     status: 400,
     data: {
-      message: error.issues
-        .map((issue) => {
-          if (issue.code === 'invalid_type') return 'invalid body request';
-          return issue.path[0] + ' ' + issue.message.toLowerCase();
-        })
-        .join(', '),
+      message: createValidationErrorMessage(error),
     },
   };
+}
+
+function createValidationErrorMessage(error: ZodError): string {
+  if (
+    error.issues.length === 1 &&
+    error.issues[0].code === 'invalid_type' &&
+    error.issues[0].message !== 'Required'
+  ) {
+    return 'invalid body request';
+  }
+  return error.issues
+    .map((issue) => issue.path[0] + ' ' + issue.message.toLowerCase())
+    .join(', ');
 }
 
 export type ValidationError = HttpResponseBody<{ message: string }>;

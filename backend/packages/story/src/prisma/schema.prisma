@@ -11,7 +11,7 @@ datasource db {
 model story {
   id                              Int           @id @default(autoincrement())
   author                          String
-  title                           String?
+  title                           String
   shortintro                      String?
   topic                           String?
   markdowncontent                 String?

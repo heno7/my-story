@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package auth;
+
+service Auth {
+    rpc CheckUserExist (UserExistRequest) returns (UserExistResponse);
+}
+
+message UserExistRequest {
+    string name = 1;
+}
+
+message UserExistResponse {
+    bool exist = 1;
+}

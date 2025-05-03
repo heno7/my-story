@@ -1,6 +1,7 @@
 import express, { Express } from 'express';
 import { errorHandler } from '@heno7/common';
 import authRoutes from './controller';
+import { startRpcServer } from './rpc';
 // import amqplib from 'amqplib';
 
 const app: Express = express();
@@ -17,6 +18,7 @@ app.use(errorHandler);
 
 app.listen(port, () => {
   console.log(`auth service listening on port ${port}`);
+  startRpcServer();
 });
 
 // (async () => {

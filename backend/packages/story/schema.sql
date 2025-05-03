@@ -22,3 +22,22 @@ create table topic (
 	author text,
 	title text unique
 );
+
+alter table story drop constraint story_title_key
+alter table topic drop constraint topic_title_key
+alter table topic drop constraint topic_name_key
+alter table story drop constraint story_topic_fkey
+
+select * from information_schema.table_constraints where constraint_name like '%story_topic%' ;
+
+alter table topic add unique(name, author)
+alter table story add foreign key (author, topic) references topic(author, name);
+
+alter table story drop column createdAt
+alter table story add column createdAt timestamp without time zone default localtimestamp
+alter table story add column updatedAt timestamp without time zone
+
+select now(), current_timestamp
+select localtimestamp
+
+show timezone;
