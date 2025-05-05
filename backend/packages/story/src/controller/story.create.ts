@@ -7,6 +7,8 @@ import {
   toLowerCaseObj,
 } from '@heno7/common';
 import { authRpcClient } from '../rpc';
+import { sendCreateStoryEvent } from '../event';
+
 export async function createStory(req: Request, res: Response): Promise<void> {
   const story: StoryCreateRequestDto = StoryCreateRequestDto.parse(req.body);
   console.log('recieved story', story);
@@ -32,4 +34,6 @@ export async function createStory(req: Request, res: Response): Promise<void> {
   });
 
   res.status(201).json(storyResponse);
+
+  await sendCreateStoryEvent(createdStory);
 }

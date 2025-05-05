@@ -12,12 +12,17 @@ build:
       context: ./packages/story
       docker:
         dockerfile: ./deploy/Dockerfile
+    - image: heno77/search-image
+      context: ./packages/search
+      docker:
+        dockerfile: ./deploy/Dockerfile
   local: { push: false }
 
 manifests:
   rawYaml:
     - ./packages/auth/deploy/deployment.yaml
     - ./packages/story/deploy/deployment.yaml
-    - ./infra/ingress.yaml
+    - ./packages/search/deploy/deployment.yaml
     - ./infra/rabbitmq.yaml
+    - ./infra/ingress.yaml
     # - ./infra/postgres.yaml
